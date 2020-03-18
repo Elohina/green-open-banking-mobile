@@ -48,11 +48,11 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
+        {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
         <SafeAreaView style={{ flex: 0}} />
         <SafeAreaView style={{ flex: 1, backgroundColor: '#32323B' }}>
           <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-            <Stack.Navigator>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
               <Stack.Screen name="Root" component={BottomTabNavigator} />
             </Stack.Navigator>
           </NavigationContainer>
@@ -64,6 +64,7 @@ export default function App(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#171822'
   },
 });
