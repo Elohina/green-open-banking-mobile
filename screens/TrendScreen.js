@@ -18,16 +18,16 @@ export default function TrendScreen() {
         <Balance amount={1447} title="March" />
       </View>
       <View>
-        <CategoryBar title="Clothing" data={[{total: 1400, clothing: 870}]} keys={['total', 'clothing']} value={-358}/>
+        <CategoryBar title="Clothing" data={[{total: 1400, clothing: 870}]} keys={['total', 'clothing']} value={870}/>
       </View>
       <View>
-        <CategoryBar title="Groccery" data={[{total: 1400, clothing: 300}]} keys={['total', 'clothing']} value={-358}/>
+        <CategoryBar title="Groccery" data={[{total: 1400, clothing: 300}]} keys={['total', 'clothing']} value={300}/>
       </View>
       <View>
-        <CategoryBar title="Restaurant" data={[{total: 1400, clothing: 200}]} keys={['total', 'clothing']} value={-358}/>
+        <CategoryBar title="Restaurant" data={[{total: 1400, clothing: 200}]} keys={['total', 'clothing']} value={200}/>
       </View>
       <View>
-        <CategoryBar title="Transport" data={[{total: 1400, clothing: 1100}]} keys={['total', 'clothing']} value={-358}/>
+        <CategoryBar title="Transport" data={[{total: 1400, clothing: 1100}]} keys={['total', 'clothing']} value={1100}/>
       </View>
     </ScrollView>
   );
