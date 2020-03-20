@@ -1,15 +1,22 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import HorizontalBarChart from '../components/HorizontalBarChart';
 import CategoryBar from '../components/CategoryBar';
+import bankCard from '../assets/images/bank_card.png';
+import Balance from '../components/Balance';
 
 import Colors from '../constants/Colors';
 
 export default function TrendScreen() {
-  const { container, contentContainer } = styles;
+  const { container, contentContainer, title, cardStyles, cardTitle, topInfo } = styles;
   return (
     <ScrollView style={container} contentContainerStyle={contentContainer}>
+      <Text style={title}>Your spending</Text>
+      <View style={topInfo}>
+        <Image source={bankCard} style={cardStyles}/>
+        <Text style={cardTitle}>All accounts</Text>
+        <Balance amount={1447} title="March" />
+      </View>
       <View>
         <CategoryBar title="Clothing" data={[{total: 1400, clothing: 870}]} keys={['total', 'clothing']} value={-358}/>
       </View>
@@ -35,7 +42,23 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 15,
   },
+  topInfo: {
+    alignItems: 'center'
+  },
   title: {
-    color: '#FFF'
+    fontSize: 23,
+    color: '#FFF',
+    alignSelf: 'center',
+    marginBottom: 30
+  },
+  cardStyles: {
+    height: 80,
+    width: 120,
+    left: 6
+  },
+  cardTitle: {
+    fontSize: 18,
+    color: '#FFF',
+    marginVertical: 10
   }
 });
