@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import TrendScreen from '../screens/TrendScreen';
 import Colors from '../constants/Colors';
 
 const BottomTab = createBottomTabNavigator();
@@ -36,7 +36,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Trend"
-        component={LinksScreen}
+        component={TrendScreen}
         options={{
           title: 'Trend',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="bar-graph" iconType="Entypo"/>,
@@ -44,7 +44,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Progress"
-        component={LinksScreen}
+        component={TrendScreen}
         options={{
           title: 'Progress',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-star-half" />,
@@ -52,7 +52,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Settings"
-        component={LinksScreen}
+        component={TrendScreen}
         options={{
           title: 'Settings',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-menu" />,
