@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import Amount from './Amount';
+
 const ListItem = ({ item }) => {
     const { leftItem, rightItem, container } = styles;
     return (
         <View style={container}>
             <Text style={leftItem}>{item.title}</Text>
-            <Text style={rightItem}>${item.amount}</Text>
+            <Amount amount={item.amount} amountStyle={rightItem} currency={'$'} />
         </View>
     )
 };

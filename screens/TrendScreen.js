@@ -15,7 +15,7 @@ export default function TrendScreen() {
       <View style={topInfo}>
         <Image source={bankCard} style={cardStyles}/>
         <Text style={cardTitle}>All accounts</Text>
-        <Balance amount={1447} title="March" />
+        <Balance amount={1447} currency={'$'} title="March" />
       </View>
       <View>
         <CategoryBar title="Clothing" data={[{total: 1400, clothing: 870}]} keys={['total', 'clothing']} value={870}/>

@@ -47,11 +47,11 @@ export default function HomeScreen() {
     <View style={container}>
       <Text style={title}>Your balance</Text>
       <View>
-        <Balance amount={317} title={'Safe to spend'}/>
+        <Balance amount={317} currency={'$'} title={'Safe to spend'}/>
         <List items={balanceList}/>
       </View>
       <View>
-        <Balance amount={25050} title={'Your savings'}/>
+        <Balance amount={25050} currency={'$'} title={'Your savings'}/>
         <List items={savingsList}/>
       </View>
     </View>

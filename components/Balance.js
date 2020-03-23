@@ -1,14 +1,18 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
+import NumberFormat from 'react-number-format';
+import Amount from './Amount';
 
-const Balance = ({ amount, title }) => {
+const Balance = ({ amount, currency, title }) => {
     const { container, amountStyle, titleStyle, currencyStyle } = styles;
     return (
         <View style={container}>
-            <Text style={amountStyle}>
-                <Text style={currencyStyle}>$</Text>
-                {amount}
-            </Text>
+            <Amount
+                amount={amount}
+                amountStyle={amountStyle}
+                currency={currency}
+                currencyStyle={currencyStyle}
+            />
             <Text style={titleStyle}>{title}</Text>
         </View>
     );
