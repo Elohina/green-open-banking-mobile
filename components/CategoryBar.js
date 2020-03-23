@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import HorizontalBarChart from '../components/HorizontalBarChart';
+import Amount from './Amount';
 
 import Colors from '../constants/Colors';
 
@@ -10,7 +11,7 @@ const CategoryBar = ({ title, data, isFull, keys, value, iconName }) => {
         <View style={container}>
             <View style={textContainer}>
                 <Text style={titleStyle}>{title}</Text>
-                <Text style={valueStyle}>{value}</Text>
+                <Amount amount={value} amountStyle={valueStyle} currency={'$'}/>
             </View>
             <HorizontalBarChart data={data} keys={keys}/>
         </View>
