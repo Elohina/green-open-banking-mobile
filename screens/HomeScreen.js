@@ -48,11 +48,11 @@ export default function HomeScreen() {
       <Text style={title}>Your balance</Text>
       <View>
         <Balance amount={317} currency={'$'} title={'Safe to spend'}/>
-        <List items={balanceList}/>
+        <List items={balanceList} type="button"/>
       </View>
       <View>
         <Balance amount={25050} currency={'$'} title={'Your savings'}/>
-        <List items={savingsList}/>
+        <List items={savingsList} type="button" />
       </View>
     </View>
   );
