@@ -9,7 +9,8 @@ export default function(containerRef) {
         path: 'root',
         screens: {
           Home: 'home',
-          Links: 'links',
+          Trends: 'trends',
+          Progress: 'progress',
           Settings: 'settings',
         },
       },

@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import TrendScreen from '../screens/TrendScreen';
+import CategoryDetailScreen from '../screens/CategoryDetailScreen';
 import Colors from '../constants/Colors';
 
 const BottomTab = createBottomTabNavigator();
@@ -13,6 +15,17 @@ export default function BottomTabNavigator({ navigation, route }) {
   // currently active tab. Learn more in the documentation:
   // https://reactnavigation.org/docs/en/screen-options-resolution.html
   // navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+
+  const TrendStack = createStackNavigator();
+
+  const TrendStackScreen = () => {
+    return (
+      <TrendStack.Navigator screenOptions={{headerShown: false}} initialRouteName={'Trend'}>
+        <TrendStack.Screen name="Trend" component={TrendScreen} />
+        <TrendStack.Screen name="CategoryDetail" component={CategoryDetailScreen} />
+      </TrendStack.Navigator>
+    );
+  };
 
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}
@@ -35,10 +48,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Trend"
-        component={TrendScreen}
+        name="Trends"
+        component={TrendStackScreen}
         options={{
-          title: 'Trend',
+          title: 'Trends',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="bar-graph" iconType="Entypo"/>,
         }}
       />

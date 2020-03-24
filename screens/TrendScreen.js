@@ -7,7 +7,7 @@ import Balance from '../components/Balance';
 
 import Colors from '../constants/Colors';
 
-export default function TrendScreen() {
+export default function TrendScreen({navigation}) {
   const { container, contentContainer, title, cardStyles, cardTitle, topInfo } = styles;
   return (
     <ScrollView style={container} contentContainerStyle={contentContainer}>
@@ -18,7 +18,7 @@ export default function TrendScreen() {
         <Balance amount={1447} currency={'$'} title="March" />
       </View>
       <View>
-        <CategoryBar title="Clothing" data={[{total: 1400, clothing: 870}]} keys={['total', 'clothing']} value={870}/>
+        <CategoryBar title="Clothing" data={[{total: 1400, clothing: 870}]} keys={['total', 'clothing']} value={870} action={() => (navigation.navigate('Trends', {screen: 'CategoryDetail'}))}/>
       </View>
       <View>
         <CategoryBar title="Groccery" data={[{total: 1400, clothing: 300}]} keys={['total', 'clothing']} value={300}/>

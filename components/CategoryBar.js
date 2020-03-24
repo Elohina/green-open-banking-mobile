@@ -1,20 +1,20 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import HorizontalBarChart from '../components/HorizontalBarChart';
 import Amount from './Amount';
 
 import Colors from '../constants/Colors';
 
-const CategoryBar = ({ title, data, isFull, keys, value, iconName }) => {
+const CategoryBar = ({ title, data, isFull, keys, value, iconName, action }) => {
     const { container, titleStyle, valueStyle, textContainer } = styles;
     return(
-        <View style={container}>
+        <TouchableOpacity style={container} onPress={()=>(action())}>
             <View style={textContainer}>
                 <Text style={titleStyle}>{title}</Text>
                 <Amount amount={value} amountStyle={valueStyle} currency={'$'}/>
             </View>
             <HorizontalBarChart data={data} keys={keys}/>
-        </View>
+        </TouchableOpacity>
     );
 };
 
