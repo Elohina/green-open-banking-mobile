@@ -18,7 +18,13 @@ export default function TrendScreen({navigation}) {
         <Balance amount={1447} currency={'$'} title="March" />
       </View>
       <View>
-        <CategoryBar title="Clothing" data={[{total: 1400, clothing: 870}]} keys={['total', 'clothing']} value={870} action={() => (navigation.navigate('Trends', {screen: 'CategoryDetail'}))}/>
+        <CategoryBar
+          action={() => (navigation.navigate('Trends', {screen: 'CategoryDetail'}))}
+          data={[{total: 1400, clothing: 870}]}
+          keys={['total', 'clothing']}
+          title="Clothing"
+          value={870}
+        />
       </View>
       <View>
         <CategoryBar title="Groccery" data={[{total: 1400, clothing: 300}]} keys={['total', 'clothing']} value={300}/>

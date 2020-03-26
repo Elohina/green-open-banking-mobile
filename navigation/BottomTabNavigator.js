@@ -20,7 +20,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
   const TrendStackScreen = () => {
     return (
-      <TrendStack.Navigator screenOptions={{headerShown: false}} initialRouteName={'Trend'}>
+      <TrendStack.Navigator screenOptions={{headerShown: false}}>
         <TrendStack.Screen name="Trend" component={TrendScreen} />
         <TrendStack.Screen name="CategoryDetail" component={CategoryDetailScreen} />
       </TrendStack.Navigator>
