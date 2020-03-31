@@ -19,7 +19,7 @@ export default function TrendScreen({navigation}) {
       </View>
       <View>
         <CategoryBar
-          action={() => (navigation.navigate('Trends', {screen: 'CategoryDetail'}))}
+          action={() => (navigation.navigate('Trends', {screen: 'CategoryDetail', params: { title: 'Clothings spending'}}))}
           data={[{total: 1400, clothing: 870}]}
           keys={['total', 'clothing']}
           title="Clothing"

@@ -41,13 +41,14 @@ const savingsList = [
   },
 ];
 
-export default function CategoryDetailScreen({navigation}) {
-  const { container, title } = styles;
+export default function CategoryDetailScreen({navigation, route}) {
+  const { container, titleStyle } = styles;
+  const { title } = route.params;
   return (
     <View style={container}>
-      <Text style={title}>Clothing spending</Text>
+      <Text style={titleStyle}>{title}</Text>
       <View>
-        <Balance amount={317} currency={'$'} title={'Safe to spend'}/>
+        <Balance amount={317} currency={'$'} title={'monthly average'}/>
         <List items={balanceList}/>
       </View>
     </View>
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  title: {
+  titleStyle: {
     fontSize: 23,
     color: '#FFF',
     alignSelf: 'center',
