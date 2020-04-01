@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
 import Colors from '../constants/Colors';
 import Balance from '../components/Balance';
 import List from '../components/List';
+import Header from '../components/Header';
 
 const balanceList = [
   {
@@ -42,11 +43,11 @@ const savingsList = [
 ];
 
 export default function CategoryDetailScreen({navigation, route}) {
-  const { container, titleStyle } = styles;
+  const { container } = styles;
   const { title } = route.params;
   return (
     <View style={container}>
-      <Text style={titleStyle}>{title}</Text>
+      <Header title={title} navigation={navigation}/>
       <View>
         <Balance amount={317} currency={'$'} title={'monthly average'}/>
         <List items={balanceList}/>
@@ -55,19 +56,9 @@ export default function CategoryDetailScreen({navigation, route}) {
   );
 }
 
-CategoryDetailScreen.navigationOptions = {
-  header: null,
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
   },
-  titleStyle: {
-    fontSize: 23,
-    color: '#FFF',
-    alignSelf: 'center',
-    marginTop: 30
-  }
 });

@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Colors from '../constants/Colors';
 import Balance from '../components/Balance';
 import List from '../components/List';
+import Header from '../components/Header';
 
 const balanceList = [
   {
@@ -45,7 +46,7 @@ export default function HomeScreen() {
   const { container, title } = styles;
   return (
     <View style={container}>
-      <Text style={title}>Your balance</Text>
+      <Header title={"Your balance"} />
       <View>
         <Balance amount={317} currency={'$'} title={'Safe to spend'}/>
         <List items={balanceList} type="button"/>

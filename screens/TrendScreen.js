@@ -6,12 +6,13 @@ import bankCard from '../assets/images/bank_card.png';
 import Balance from '../components/Balance';
 
 import Colors from '../constants/Colors';
+import Header from '../components/Header';
 
 export default function TrendScreen({navigation}) {
-  const { container, contentContainer, title, cardStyles, cardTitle, topInfo } = styles;
+  const { container, cardStyles, cardTitle, topInfo } = styles;
   return (
-    <ScrollView style={container} contentContainerStyle={contentContainer}>
-      <Text style={title}>Your spending</Text>
+    <ScrollView style={container}>
+      <Header title={"Your spending"} />
       <View style={topInfo}>
         <Image source={bankCard} style={cardStyles}/>
         <Text style={cardTitle}>All accounts</Text>
@@ -45,17 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
     paddingHorizontal: 20
   },
-  contentContainer: {
-    paddingTop: 15,
-  },
   topInfo: {
     alignItems: 'center'
-  },
-  title: {
-    fontSize: 23,
-    color: '#FFF',
-    alignSelf: 'center',
-    marginBottom: 30
   },
   cardStyles: {
     height: 80,
