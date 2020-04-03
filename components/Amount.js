@@ -1,25 +1,27 @@
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import NumberFormat from 'react-number-format';
 import Colors from '../constants/Colors';
 
 const Amount = ({ amount, amountStyle, currency, currencyStyle }) => {
     return (
-        <Text style={amount < 0 ? {...amountStyle, color: Colors.pink} : amountStyle}>
-            { amount < 0 && <Text>-</Text>}
+        <View style={{flex: 0, flexDirection: 'row', alignItems: 'baseline'}}>
+            { amount < 0 && <Text style={amount < 0 ? {...amountStyle, color: Colors.pink} : amountStyle}>-</Text>}
             { currency &&
-                <Text style={currencyStyle}>{currency}</Text>
+                <Text style={amount < 0 ? {...currencyStyle, color: Colors.pink} : currencyStyle}>{currency}</Text>
             }
-            <NumberFormat
-                value={amount}
-                displayType={'text'}
-                thousandSeparator={true}
-                allowNegative={false}
-                renderText={
-                    (value) =>  <Text>{value}</Text>
-                }
-            />
-        </Text>
+            <Text style={amount < 0 ? {...amountStyle, color: Colors.pink} : amountStyle}>
+                <NumberFormat
+                    value={amount}
+                    displayType={'text'}
+                    thousandSeparator={true}
+                    allowNegative={false}
+                    renderText={
+                        (value) =>  <Text>{value}</Text>
+                    }
+                />
+            </Text>
+        </View>
     );
 };
 
