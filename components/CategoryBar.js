@@ -5,13 +5,15 @@ import Amount from './Amount';
 
 import Colors from '../constants/Colors';
 
-const CategoryBar = ({ title, data, isFull, keys, value, iconName, action }) => {
-    const { container, titleStyle, valueStyle, textContainer } = styles;
+const CategoryBar = ({ title, data, isFull, keys, showValue, iconName, action }) => {
+    const { container, titleStyle, valueStyle, textContainer, currencyStyle } = styles;
     return(
-        <TouchableOpacity style={container} onPress={()=>(action())}>
+        <TouchableOpacity style={container} onPress={action ? ()=>(action()) : undefined}>
             <View style={textContainer}>
                 <Text style={titleStyle}>{title}</Text>
-                <Amount amount={value} amountStyle={valueStyle} currency={'$'}/>
+                { showValue &&
+                    <Amount amount={data[0].value} amountStyle={valueStyle} currency={'$'} currencyStyle={currencyStyle} />
+                }
             </View>
             <HorizontalBarChart data={data} keys={keys}/>
         </TouchableOpacity>
@@ -21,19 +23,22 @@ const CategoryBar = ({ title, data, isFull, keys, value, iconName, action }) => 
 const styles = StyleSheet.create({
     container: {
         marginVertical: 15,
-        flex: 1
+        marginHorizontal: 20,
     },
     valueStyle: {
-        color: '#FFF'
+        color: '#FFF',
     },
     titleStyle: {
-      color: '#FFF'
+      color: '#FFF',
     },
     textContainer: {
-        flex: 1,
+        flex: 0,
         justifyContent: 'space-between',
         flexDirection: 'row',
-        marginBottom: 3
+        marginBottom: 3,
+    },
+    currencyStyle: {
+        color: '#FFF',
     }
 });
 
