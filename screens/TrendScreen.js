@@ -21,20 +21,21 @@ export default function TrendScreen({navigation}) {
       <View>
         <CategoryBar
           action={() => (navigation.navigate('Trends', {screen: 'CategoryDetail', params: { title: 'Clothings spending'}}))}
-          data={[{total: 1400, clothing: 870}]}
-          keys={['total', 'clothing']}
+          data={[{total: 1400, value: 870}]}
+          keys={['total', 'value']}
           title="Clothing"
           value={870}
+          showValue={true}
         />
       </View>
       <View>
-        <CategoryBar title="Groccery" data={[{total: 1400, clothing: 300}]} keys={['total', 'clothing']} value={300}/>
+        <CategoryBar title="Grocery" data={[{total: 1400, value: 300}]} keys={['total', 'value']} value={300} showValue={true}/>
       </View>
       <View>
-        <CategoryBar title="Restaurant" data={[{total: 1400, clothing: 200}]} keys={['total', 'clothing']} value={200}/>
+        <CategoryBar title="Restaurant" data={[{total: 1400, value: 200}]} keys={['total', 'value']} value={200} showValue={true}/>
       </View>
       <View>
-        <CategoryBar title="Transport" data={[{total: 1400, clothing: 1100}]} keys={['total', 'clothing']} value={1100}/>
+        <CategoryBar title="Transport" data={[{total: 1400, value: 1100}]} keys={['total', 'value']} value={1100} showValue={true}/>
       </View>
     </ScrollView>
   );
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
-    paddingHorizontal: 20
   },
   topInfo: {
     alignItems: 'center'
