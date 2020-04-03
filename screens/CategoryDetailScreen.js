@@ -5,6 +5,7 @@ import Colors from '../constants/Colors';
 import Balance from '../components/Balance';
 import List from '../components/List';
 import Header from '../components/Header';
+import CategoryBar from '../components/CategoryBar';
 
 const balanceList = [
   {
