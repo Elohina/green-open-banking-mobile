@@ -5,11 +5,11 @@ import Amount from './Amount';
 import Colors from "../constants/Colors";
 
 const ListItem = ({ item, type }) => {
-    const { leftItem, rightItem, container, buttonStyle, listStyle } = styles;
+    const { leftItem, rightItem, container, buttonStyle, listStyle, currencyStyle } = styles;
     return (
         <View style={type === 'button' ? {...container, ...buttonStyle} : {...container, ...listStyle}}>
             <Text style={leftItem}>{item.title}</Text>
-            <Amount amount={item.amount} amountStyle={rightItem} currency={'$'} />
+            <Amount amount={item.amount} amountStyle={rightItem} currency={'$'} currencyStyle={currencyStyle} />
         </View>
     )
 };
@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginVertical: 10,
-        marginLeft: 30,
-        marginRight: 30,
     },
     buttonStyle: {
         alignItems: 'center',
@@ -47,6 +45,9 @@ const styles = StyleSheet.create({
         color: '#FFF',
     },
     rightItem: {
+        color: '#FFF',
+    },
+    currencyStyle: {
         color: '#FFF',
     }
 });

@@ -5,6 +5,7 @@ import Colors from '../constants/Colors';
 import Balance from '../components/Balance';
 import List from '../components/List';
 import Header from '../components/Header';
+import CategoryBar from '../components/CategoryBar';
 
 const balanceList = [
   {
@@ -43,15 +44,13 @@ const savingsList = [
 ];
 
 export default function CategoryDetailScreen({navigation, route}) {
-  const { container } = styles;
+  const { container, spendingPercentage } = styles;
   const { title } = route.params;
   return (
     <View style={container}>
       <Header title={title} navigation={navigation}/>
-      <View>
-        <Balance amount={317} currency={'$'} title={'monthly average'}/>
-        <List items={balanceList}/>
-      </View>
+      <Balance amount={317} currency={'$'} title={'monthly average'}/>
+      <List items={balanceList}/>
     </View>
   );
 }

@@ -13,13 +13,14 @@ const List = ({ items, type }) => {
             renderItem={({item})=>{
                 return <ListItem item={item} type={type}/>;
             }}
+            style={listStyles}
         />
     )
 };
 
 const styles = StyleSheet.create({
     listStyles: {
-        marginVertical: 20
+        marginHorizontal: 20
     }
 });
 
