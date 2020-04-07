@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Colors from '../constants/Colors';
 import Balance from '../components/Balance';
 import List from '../components/List';
 import Header from '../components/Header';
-import CategoryBar from '../components/CategoryBar';
+import TipBox from '../components/TipBox';
 
 const balanceList = [
   {
@@ -25,24 +25,6 @@ const balanceList = [
   },
 ];
 
-const savingsList = [
-  {
-    name: 'savings',
-    title: 'Savings',
-    amount: 6149
-  },
-  {
-    name: 'jointSavings',
-    title: 'Joint savings',
-    amount: 8123
-  },
-  {
-    name: 'investments',
-    title: 'Investments',
-    amount: 10876
-  },
-];
-
 export default function CategoryDetailScreen({navigation, route}) {
   const { container, spendingPercentage } = styles;
   const { title } = route.params;
@@ -50,6 +32,7 @@ export default function CategoryDetailScreen({navigation, route}) {
     <View style={container}>
       <Header title={title} navigation={navigation}/>
       <Balance amount={317} currency={'$'} title={'monthly average'}/>
+      <TipBox tipText="Hey there, 30% of your spending is on clothes. We can help you spend less.." />
       <List items={balanceList}/>
     </View>
   );
