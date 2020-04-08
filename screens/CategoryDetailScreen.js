@@ -6,6 +6,7 @@ import Balance from '../components/Balance';
 import List from '../components/List';
 import Header from '../components/Header';
 import TipBox from '../components/TipBox';
+import MonthlyChart from '../components/MonthlyChart';
 
 const balanceList = [
   {
@@ -31,7 +32,8 @@ export default function CategoryDetailScreen({navigation, route}) {
   return (
     <View style={container}>
       <Header title={title} navigation={navigation}/>
-      <Balance amount={317} currency={'$'} title={'monthly average'}/>
+      <Balance amount={317} currency={'$'} title={'March'}/>
+      <MonthlyChart />
       <TipBox tipText="Hey there, 30% of your spending is on clothes. We can help you spend less.." />
       <List items={balanceList}/>
     </View>

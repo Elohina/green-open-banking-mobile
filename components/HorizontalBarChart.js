@@ -21,8 +21,4 @@ const HorizontalBarChart = ({data, keys}) => {
     );
 };
 
-// const styles = StyleSheet.create({
-
-// });
-
 export default HorizontalBarChart;
