@@ -4,15 +4,13 @@ import { FlatList, StyleSheet } from 'react-native';
 import ListItem from './ListItem';
 
 
-const List = ({ items, type }) => {
+const List = ({ items, renderItem }) => {
     const { listStyles } = styles;
     return (
         <FlatList
             data={items}
-            keyExtractor={item=>item.name}
-            renderItem={({item})=>{
-                return <ListItem item={item} type={type}/>;
-            }}
+            keyExtractor={item => item.id}
+            renderItem={renderItem}
             style={listStyles}
         />
     )

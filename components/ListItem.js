@@ -1,15 +1,50 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 import Amount from './Amount';
 import Colors from "../constants/Colors";
 
-const ListItem = ({ item, type }) => {
-    const { leftItem, rightItem, container, buttonStyle, listStyle, currencyStyle } = styles;
+const ListItem = ({ title, subtitle, value, iconSrc, type, divider=true }) => {
+    const {
+        titleStyles,
+        subtitleStyles,
+        leftItem,
+        rightItem,
+        container,
+        buttonStyle,
+        listStyle,
+        currencyStyle,
+        dividerStyle,
+        iconStyles,
+        iconContainer
+    } = styles;
+
+    // TODO: Test image, change it to receive it as parameter
+    const imageSrc = iconSrc ? require('../assets/images/robot-dev.png') : undefined;
     return (
-        <View style={type === 'button' ? {...container, ...buttonStyle} : {...container, ...listStyle}}>
-            <Text style={leftItem}>{item.title}</Text>
-            <Amount amount={item.amount} amountStyle={rightItem} currency={'$'} currencyStyle={currencyStyle} />
+        <View style={
+            type === 'button' ? (
+                {...container, ...buttonStyle}
+            ) : (
+                divider ? (
+                    {...container, ...listStyle, ...dividerStyle}
+                ) : (
+                    {...container, ...listStyle}
+                )
+            )}>
+            { iconSrc &&
+                <View style={iconContainer}>
+                    <Image style={iconStyles} source={imageSrc} />
+                </View>
+            }
+
+            <View style={leftItem}>
+                <Text style={titleStyles}>{title}</Text>
+                { subtitle && <Text style={subtitleStyles}>{subtitle}</Text>}
+            </View>
+            <View style={rightItem}>
+                <Amount amount={value} amountStyle={{color: '#FFF'}} currency={'$'} currencyStyle={currencyStyle} />
+            </View>
         </View>
     )
 };
@@ -36,19 +71,39 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
     listStyle: {
-        borderBottomColor: '#818396',
-        borderStyle:'solid',
-        borderBottomWidth: 1,
         paddingBottom: 10
     },
-    leftItem: {
+    dividerStyle: {
+        borderBottomWidth: 1,
+        borderBottomColor: '#818396',
+        borderStyle:'solid',
+    },
+    titleStyles: {
         color: '#FFF',
     },
+    subtitleStyles: {
+        color: '#818396',
+    },
+    leftItem: {
+        flex: 4,
+        justifyContent: 'center'
+    },
     rightItem: {
-        color: '#FFF',
+        flex: 1,
+        alignItems: 'flex-end',
+        justifyContent: 'center'
     },
     currencyStyle: {
         color: '#FFF',
+    },
+    iconContainer: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    iconStyles: {
+        width: 50,
+        height: 50,
+        borderRadius: 50,
     }
 });
 
